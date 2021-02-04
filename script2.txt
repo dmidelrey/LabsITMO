@@ -1,0 +1,5 @@
+history
+history
+help
+history
+execute_script script.txt
