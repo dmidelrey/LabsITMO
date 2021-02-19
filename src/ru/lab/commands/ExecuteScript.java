@@ -33,8 +33,9 @@ public class ExecuteScript extends Command{
         try (Scanner scanner = new Scanner(new FileReader(fileName))) {
             workingScripts.add("execute_script " + fileName);
             String input = "";
-            if (scanner.hasNext()) input = scanner.nextLine();
+            
             while (scanner.hasNext()) {
+                input = scanner.nextLine();
                 if (input.contains("execute_script")) {
                     if (workingScripts.contains(input)) {
                         System.out.println(input.split(" ")[1] + " is already working. Command skipped.\n");
@@ -56,7 +57,7 @@ public class ExecuteScript extends Command{
                         System.exit(0);
                     }
                 }
-                input = scanner.nextLine();
+                
             }
         } catch (IOException e) {
             System.out.println("File not found or access denied");
